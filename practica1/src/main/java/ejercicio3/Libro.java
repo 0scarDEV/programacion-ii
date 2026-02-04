@@ -1,11 +1,11 @@
 package ejercicio3;
 
 public class Libro {
-    private String titulo;
-    private String[] autores;
-    private String editorial;
-    private int anhoEdicion;
-    private String isbn;
+    String titulo;
+    String[] autores;
+    String editorial;
+    int anhoEdicion;
+    String isbn;
     
     public Libro(String titulo, String[] autores, String editorial, int anhoEdicion, String isbn) {
         this.titulo = titulo;
