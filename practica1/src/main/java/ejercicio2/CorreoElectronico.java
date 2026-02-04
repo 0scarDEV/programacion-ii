@@ -1,6 +1,7 @@
 package ejercicio2;
 
 public class CorreoElectronico {
+    static final String SERVIDOR = "esei.uvigo.es";
     String nombre;
     String apellidos;
     String usuario;
@@ -17,7 +18,7 @@ public class CorreoElectronico {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.usuario = apellidos.split(" ")[0].toLowerCase() + nombre.toLowerCase().charAt(0);
-        this.servidor = "esei.uvigo.es";
+        this.servidor = SERVIDOR;
     }
 
     @Override
