@@ -7,6 +7,7 @@ public class LibroConTipo {
         NOVELA, HISTORIA, TECNOLOGIA
     }
 
+    // Atributos
     private String titulo;
     private String autores;
     private String editorial;
@@ -14,6 +15,7 @@ public class LibroConTipo {
     private int anho;
     private String isbn;
 
+    // Constructor
     LibroConTipo(String titulo, String autores, String editorial, TipoLibro tipo, int anho, String isbn) {
         this.titulo = titulo;
         this.autores = autores;
@@ -23,30 +25,15 @@ public class LibroConTipo {
         this.isbn = isbn;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
+    // Getters
+    public String getTitulo() {return titulo;}
+    public String getAutores() {return autores;}
+    public String getEditorial() {return editorial;}
+    public int getAnho() {return anho;}
+    public String getIsbn() {return isbn;}
+    public TipoLibro getTipo() {return tipo;}
 
-    public String getAutores() {
-        return autores;
-    }
-
-    public String getEditorial() {
-        return editorial;
-    }
-
-    public int getAnho() {
-        return anho;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public TipoLibro getTipo() {
-        return tipo;
-    }
-
+    // Métodos
     @Override
     public String toString() {
         return """
@@ -58,6 +45,7 @@ public class LibroConTipo {
                 Isbn = %s""".formatted(titulo, autores, editorial, tipo, anho, isbn);
     }
 
+    // Estáticos
     static LibroConTipo crearLibroDesdeConsola(Scanner scanner) {
         System.out.print("Introduce el título: ");
         String titulo = scanner.nextLine();

@@ -3,12 +3,14 @@ package ejercicio1;
 import java.util.Scanner;
 
 class Libro {
+    // Atributos
     private String titulo;
     private String autores;
     private String editorial;
     private int anho;
     private String isbn;
 
+    // Constructor
     Libro(String titulo, String autores, String editorial, int anho, String isbn) {
         this.titulo = titulo;
         this.autores = autores;
@@ -17,26 +19,14 @@ class Libro {
         this.isbn = isbn;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
+    // Getters
+    public String getTitulo() {return titulo;}
+    public String getAutores() {return autores;}
+    public String getEditorial() {return editorial;}
+    public int getAnho() {return anho;}
+    public String getIsbn() {return isbn;}
 
-    public String getAutores() {
-        return autores;
-    }
-
-    public String getEditorial() {
-        return editorial;
-    }
-
-    public int getAnho() {
-        return anho;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
+    // Métodos
     @Override
     public String toString() {
         return """
@@ -47,6 +37,7 @@ class Libro {
                Isbn = %s""".formatted(titulo, autores, editorial, anho, isbn);
     }
 
+    // Estáticos
     static Libro crearLibroDesdeConsola(Scanner scanner){
         System.out.print("Introduce el título: ");
         String titulo = scanner.nextLine();
