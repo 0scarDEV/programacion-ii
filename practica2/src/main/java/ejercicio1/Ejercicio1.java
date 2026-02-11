@@ -18,12 +18,31 @@ public class Ejercicio1 {
         }
 
         Scanner sc = new Scanner(System.in);
-        libros[3] = Libro.crearLibroDesdeConsola(sc);
+        libros[3] = crearLibroDesdeConsola(sc);
         sc.close();
 
         System.out.println("Mostramos los libros por título: ");
         for (Libro libro : libros) {
             System.out.println("\t" + libro.getTitulo());
         }
+    }
+
+    static Libro crearLibroDesdeConsola(Scanner scanner){
+        System.out.print("Introduce el título: ");
+        String titulo = scanner.nextLine();
+
+        System.out.print("Introduce los autores: ");
+        String autores = scanner.nextLine();
+
+        System.out.print("Introduce la editorial: ");
+        String editorial = scanner.nextLine();
+
+        System.out.print("Introduce el año de edición: ");
+        int anho = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Introduce el ISBN: ");
+        String isbn = scanner.nextLine();
+
+        return new Libro(titulo, autores, editorial, anho, isbn);
     }
 }

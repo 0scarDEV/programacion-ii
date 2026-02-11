@@ -36,24 +36,4 @@ class Libro {
                Año = %d
                Isbn = %s""".formatted(titulo, autores, editorial, anho, isbn);
     }
-
-    // Estáticos
-    static Libro crearLibroDesdeConsola(Scanner scanner){
-        System.out.print("Introduce el título: ");
-        String titulo = scanner.nextLine();
-
-        System.out.print("Introduce los autores: ");
-        String autores = scanner.nextLine();
-
-        System.out.print("Introduce la editorial: ");
-        String editorial = scanner.nextLine();
-
-        System.out.print("Introduce el año de edición: ");
-        int anho = Integer.parseInt(scanner.nextLine());
-
-        System.out.print("Introduce el ISBN: ");
-        String isbn = scanner.nextLine();
-
-        return new Libro(titulo, autores, editorial, anho, isbn);
-    }
 }
