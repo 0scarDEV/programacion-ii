@@ -15,7 +15,7 @@ public class Cuenta {
         }
     }
 
-    /*
+    /* Como se debería hacer
     public boolean ingresar(double cantidad) {
         if (cantidad > 0) {
             saldo += cantidad;
@@ -32,10 +32,16 @@ public class Cuenta {
         return false;
     } */
 
+    // La jaimitada del System.exit(1).
+    public double getSaldo() {
+        return saldo;
+    }
+
     public void ingresar(double cantidad) {
         if (cantidad > 0) {
             saldo += cantidad;
         } else {
+            System.out.println("Error: cantidad no válida.");
             System.exit(1);
         }
     }
@@ -44,6 +50,7 @@ public class Cuenta {
         if (cantidad > 0 && cantidad <= saldo) {
             saldo -= cantidad;
         } else {
+            System.out.println("Error: cantidad no válida o saldo insuficiente.");
             System.exit(1);
         }
     }
