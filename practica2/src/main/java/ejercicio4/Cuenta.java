@@ -15,6 +15,7 @@ public class Cuenta {
         }
     }
 
+    /*
     public boolean ingresar(double cantidad) {
         if (cantidad > 0) {
             saldo += cantidad;
@@ -29,5 +30,21 @@ public class Cuenta {
             return true;
         }
         return false;
+    } */
+
+    public void ingresar(double cantidad) {
+        if (cantidad > 0) {
+            saldo += cantidad;
+        } else {
+            System.exit(1);
+        }
+    }
+
+    public void retirar(double cantidad) {
+        if (cantidad > 0 && cantidad <= saldo) {
+            saldo -= cantidad;
+        } else {
+            System.exit(1);
+        }
     }
 }
