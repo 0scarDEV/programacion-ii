@@ -1,7 +1,5 @@
 package ejercicio1;
 
-import java.util.Scanner;
-
 class Libro {
     // Atributos
     private String titulo;
