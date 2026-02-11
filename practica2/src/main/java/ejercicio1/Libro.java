@@ -1,5 +1,7 @@
 package ejercicio1;
 
+import java.util.Scanner;
+
 class Libro {
     private String titulo;
     private String autores;
@@ -43,5 +45,24 @@ class Libro {
                Editorial = %s
                Año = %d
                Isbn = %s""".formatted(titulo, autores, editorial, anho, isbn);
+    }
+
+    static Libro crearLibroDesdeConsola(Scanner scanner){
+        System.out.print("Introduce el título: ");
+        String titulo = scanner.nextLine();
+
+        System.out.print("Introduce los autores: ");
+        String autores = scanner.nextLine();
+
+        System.out.print("Introduce la editorial: ");
+        String editorial = scanner.nextLine();
+
+        System.out.print("Introduce el año de edición: ");
+        int anho = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Introduce el ISBN: ");
+        String isbn = scanner.nextLine();
+
+        return new Libro(titulo, autores, editorial, anho, isbn);
     }
 }
