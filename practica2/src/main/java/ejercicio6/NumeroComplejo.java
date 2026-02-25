@@ -5,13 +5,7 @@ public class NumeroComplejo {
     double pImaginaria;
 
     public NumeroComplejo() {
-        this.pReal = 0;
-        this.pImaginaria = 0;
-    }
-
-    public NumeroComplejo(double pReal) {
-        this.pReal = pReal;
-        this.pImaginaria = 0;
+        this(0,0);
     }
 
     public NumeroComplejo(double pReal, double pImaginaria) {
@@ -27,5 +21,17 @@ public class NumeroComplejo {
         return pImaginaria;
     }
 
-    // TODO: Continuar
+    public static NumeroComplejo suma(NumeroComplejo a, NumeroComplejo b) {
+        return new NumeroComplejo(a.getpReal() + b.getpReal(), a.getpImaginaria() + b.getpImaginaria());
+    }
+
+    public static NumeroComplejo multiplicacion(NumeroComplejo c, double d){
+        return new NumeroComplejo(c.getpReal() * d, c.getpImaginaria() * d);
+    }
+
+    public NumeroComplejo getAbsValue() {
+        double absReal = Math.abs(this.pReal);
+        double absImaginaria = Math.abs(this.pImaginaria);
+        return new NumeroComplejo(absReal, absImaginaria);
+    }
 }
