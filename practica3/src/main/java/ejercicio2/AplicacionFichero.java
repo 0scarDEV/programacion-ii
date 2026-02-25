@@ -24,42 +24,37 @@ public class AplicacionFichero {
             }
         } while (operadorFichero == null);
 
-        // Leer
-        System.out.println("Contenidos del fichero: " + fichero);
         try {
+            // Leer
+            System.out.println("Contenidos del fichero: " + fichero);
             System.out.println(operadorFichero.leerFichero());
-        } catch (IOException e) {
-            System.out.println("Error al leer el fichero: " + e.getMessage());
-        }
 
-        // Escribir
-        String linea = null;
-        do {
-            System.out.println("Añadamos una línea al fichero (linea vacía si quieres terminar): ");
-            linea = entrada.nextLine().trim();
-            if (linea.length() > 0) {
-                try {
+            // Escribir
+            String linea = null;
+            do {
+                System.out.println("Añadamos una línea al fichero (linea vacía si quieres terminar): ");
+                linea = entrada.nextLine().trim();
+                if (linea.length() > 0) {
+
                     operadorFichero.añadirTexto(linea + "\n");
                     System.out.println("Línea añadida");
-                } catch (AccessDeniedException e) {
-                    System.out.println("No tienes permisos para escribir en el fichero: " + e.getMessage());
-                } catch (IOException e) {
-                    System.out.println("Error al añadir texto al fichero: " + e.getMessage());
+
                 }
-            }
 
-        } while (linea.length() > 0);
-        entrada.close();
+            } while (linea.length() > 0);
 
-        // Leer de nuevo
-        System.out.println("Contenidos del fichero: " + fichero);
-        try {
+            // Leer de nuevo
+            System.out.println("Contenidos del fichero: " + fichero);
             System.out.println(operadorFichero.leerFichero());
+
+        } catch (AccessDeniedException e) {
+            System.out.println("No tienes permisos para escribir en el fichero: " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("Error al leer el fichero: " + e.getMessage());
+            System.out.println("Error al escribir o leer en el fichero: " + e.getMessage());
+        } finally {
+            entrada.close();
+            System.out.println("Que tengas un buen día");
         }
 
-        // Bye
-        System.out.println("Que tengas un buen día");
     }
 }
