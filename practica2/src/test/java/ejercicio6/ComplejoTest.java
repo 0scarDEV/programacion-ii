@@ -27,4 +27,36 @@ public class ComplejoTest {
         assert resultado.getpReal() == 5;
         assert resultado.getpImaginaria() == 6;
     }
+
+    @Test
+    public void testCERO() {
+        assert NumeroComplejo.CERO.getpReal() == 0;
+        assert NumeroComplejo.CERO.getpImaginaria() == 0;
+    }
+
+    @Test
+    public void testUNO() {
+        assert NumeroComplejo.UNO.getpReal() == 1;
+        assert NumeroComplejo.UNO.getpImaginaria() == 0;
+    }
+
+    @Test
+    public void testI() {
+        assert NumeroComplejo.I.getpReal() == 0;
+        assert NumeroComplejo.I.getpImaginaria() == 1;
+    }
+
+    @Test
+    public void testReal() {
+        NumeroComplejo real = NumeroComplejo.real(5);
+        assert real.getpReal() == 5;
+        assert real.getpImaginaria() == 0;
+    }
+
+    @Test
+    public void testImaginario() {
+        NumeroComplejo imaginario = NumeroComplejo.imaginario(7);
+        assert imaginario.getpReal() == 0;
+        assert imaginario.getpImaginaria() == 7;
+    }
 }

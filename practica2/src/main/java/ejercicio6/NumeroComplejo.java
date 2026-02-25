@@ -1,6 +1,9 @@
 package ejercicio6;
 
 public class NumeroComplejo {
+    public static final NumeroComplejo CERO = new NumeroComplejo(0, 0);
+    public static final NumeroComplejo UNO = new NumeroComplejo(1, 0);
+    public static final NumeroComplejo I = new NumeroComplejo(0, 1);
     double[] componentes = new double[2];
     //double pReal;
     //double pImaginaria;
@@ -40,5 +43,13 @@ public class NumeroComplejo {
         double absReal = Math.abs(this.componentes[0]);
         double absImaginaria = Math.abs(this.componentes[1]);
         return new NumeroComplejo(absReal, absImaginaria);
+    }
+
+    public static NumeroComplejo real(double r) {
+        return new NumeroComplejo(r, 0);
+    }
+    
+     public static NumeroComplejo imaginario(double i) {
+        return new NumeroComplejo(0, i);
     }
 }
