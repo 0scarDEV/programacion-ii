@@ -7,17 +7,11 @@ public enum Operacion {
     DIVIDIR;
 
     public double aplicar(double a, double b) {
-        switch (this) {
-            case SUMAR:
-                return a + b;
-            case RESTAR:
-                return a - b;
-            case MULTIPLICAR:
-                return a * b;
-            case DIVIDIR:
-                return b != 0 ? a / b : Double.NaN;
-            default:
-                return Double.NaN;
-        }
+        return switch (this) {
+            case SUMAR -> a + b;
+            case RESTAR -> a - b;
+            case MULTIPLICAR -> a * b;
+            case DIVIDIR -> b != 0 ? a / b : Double.NaN;
+        };
     }
 }
