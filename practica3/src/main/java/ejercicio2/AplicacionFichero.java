@@ -7,21 +7,32 @@ import java.util.Scanner;
 
 public class AplicacionFichero {
     public static void main(String[] args) {
-        System.out.println("Indica la ruta al fichero a operar: ");
         Scanner entrada = new Scanner(System.in);
-        String rutaFichero = entrada.nextLine();
+        String rutaFichero;
+        Path fichero;
+        OperadorFichero operadorFichero = null;
 
-        Path fichero = Path.of(rutaFichero);
-        OperadorFichero operadorFichero = new OperadorFichero(fichero);
+        System.out.println("Indica la ruta al fichero a operar: ");
+        // Crear
+        do {
+            rutaFichero = entrada.nextLine().trim();
+            fichero = Path.of(rutaFichero);
+            try {
+                operadorFichero = new OperadorFichero(fichero);
+            } catch (IllegalArgumentException e) {
+                System.out.print("El fichero no existe, inténtalo de nuevo o introduce otra ruta: ");
+            }
+        } while (operadorFichero == null);
 
+        // Leer
         System.out.println("Contenidos del fichero: " + fichero);
-
         try {
             System.out.println(operadorFichero.leerFichero());
         } catch (IOException e) {
             System.out.println("Error al leer el fichero: " + e.getMessage());
         }
 
+        // Escribir
         String linea = null;
         do {
             System.out.println("Añadamos una línea al fichero (linea vacía si quieres terminar): ");
@@ -40,6 +51,7 @@ public class AplicacionFichero {
         } while (linea.length() > 0);
         entrada.close();
 
+        // Leer de nuevo
         System.out.println("Contenidos del fichero: " + fichero);
         try {
             System.out.println(operadorFichero.leerFichero());
@@ -47,6 +59,7 @@ public class AplicacionFichero {
             System.out.println("Error al leer el fichero: " + e.getMessage());
         }
 
+        // Bye
         System.out.println("Que tengas un buen día");
     }
 }
