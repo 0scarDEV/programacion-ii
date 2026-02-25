@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.Scanner;
     
 public class OperadorFichero {
     private Path fichero;
     
     public OperadorFichero(Path fichero) {
-        // TODO: Controlemos aqui si el fichero no existe
+        if (!Files.exists(fichero)) {
+            throw new IllegalArgumentException("El fichero no existe");
+        }
         this.fichero = fichero;
     }
     
