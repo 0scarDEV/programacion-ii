@@ -17,31 +17,30 @@ public class Division {
         int num1 = 0;
         int num2 = 0;
         String linea;
-        boolean flagDividendo = false;
-        boolean flagDivisor = false;
+        boolean flag = false;
 
         do {
             System.out.print("\nIntroduzca dividendo: ");
             linea = sc.nextLine();
             try {
                 num1 = Integer.parseInt(linea);
-                flagDividendo = true;
+                flag = true;
             } catch (NumberFormatException e) {
                 System.out.println("\nError: Entrada no válida para el dividendo. Por favor, introduzca un número entero.");
+                flag = false;
+                continue;
             }
-        } while (!flagDividendo);
 
-        do {
             System.out.print("\nIntroduzca divisor: ");
             linea = sc.nextLine();
             try {
                 num2 = Integer.parseInt(linea);
-                flagDivisor = true;
+                flag = true;
             } catch (NumberFormatException e) {
                 System.out.println("\nError: Entrada no válida para el divisor. Por favor, introduzca un número entero.");
+                flag = false;
             }
-        } while (!flagDivisor);
-
+        } while (!flag);
         System.out.println("\nEl resultado es: " + divide(num1, num2));
 
         sc.close();
