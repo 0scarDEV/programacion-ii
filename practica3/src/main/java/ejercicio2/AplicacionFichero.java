@@ -35,18 +35,14 @@ public class AplicacionFichero {
                 System.out.println("Añadamos una línea al fichero (linea vacía si quieres terminar): ");
                 linea = entrada.nextLine().trim();
                 if (linea.length() > 0) {
-
                     operadorFichero.añadirTexto(linea + "\n");
                     System.out.println("Línea añadida");
-
                 }
-
             } while (linea.length() > 0);
 
             // Leer de nuevo
             System.out.println("Contenidos del fichero: " + fichero);
             System.out.println(operadorFichero.leerFichero());
-
         } catch (AccessDeniedException e) {
             System.out.println("No tienes permisos para escribir en el fichero: " + e.getMessage());
         } catch (IOException e) {
