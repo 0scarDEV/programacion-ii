@@ -8,23 +8,23 @@ public class Reunion {
     private Fecha fecha;
     private Hora horaCelebracion;
 
-    public Reunion(String asunto, String lugar, int anho, int mes, int dia, int hora, int minuto) {
+    public Reunion(String asunto, String lugar, Fecha fecha, Hora horaCelebracion) {
         setAsunto(asunto);
         setLugar(lugar);
         
-        // Composición fuerte
-        setFecha(new Fecha(dia, mes, anho));
-        setHoraCelebracion(new Hora(hora, minuto));
+        // Composición débil
+        setFecha(fecha);
+        setHoraCelebracion(horaCelebracion);
     }
 
     // Getters
     public String getAsunto() { return asunto; }
     public String getLugar() { return lugar; }
-    public Fecha getFecha() {  // Composición fuerte
-        return new Fecha(fecha.getDia(), fecha.getMes(), fecha.getAnho()); 
+    public Fecha getFecha() {  // Composición débil
+        return fecha;
     }
-    public Hora getHoraCelebracion() {  // Composición fuerte
-        return new Hora(horaCelebracion.getHora(), horaCelebracion.getMinuto()); 
+    public Hora getHoraCelebracion() {  // Composición débil
+        return horaCelebracion;
     }
 
     // Setters
