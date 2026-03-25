@@ -46,6 +46,8 @@ public class Reunion {
         }
         this.horaCelebracion = horaCelebracion;
     }
+
+    // Asistentes
     private void setAsistentes(ArrayList<Empleado> asistentes) {
         if (asistentes == null) {
             throw new IllegalArgumentException("La lista de asistentes no puede ser nula");
@@ -55,18 +57,6 @@ public class Reunion {
         }
         this.asistentes = asistentes;  // Composición débil
     }
-    public void setSecretario(Empleado secretario) {
-        if (secretario == null) {
-            throw new IllegalArgumentException("El secretario no puede ser nulo");
-        }
-        if (!asistentes.contains(secretario)) {
-            // El secretario debe ser uno de los dos primeros asistentes
-            throw new IllegalArgumentException("El secretario debe ser uno de los asistentes");
-        }
-        this.secretario = secretario;   // Composición débil
-    }
-
-    // Asistentes
     public void agregarAsistente(Empleado empleado) {
         if (empleado == null) {
             throw new IllegalArgumentException("El empleado no puede ser nulo");
@@ -101,5 +91,16 @@ public class Reunion {
             throw new IndexOutOfBoundsException("Índice fuera de rango");
         }
         setSecretario(asistentes.get(indexNuevoSecretario));
+    }
+
+    public void setSecretario(Empleado secretario) {
+        if (secretario == null) {
+            throw new IllegalArgumentException("El secretario no puede ser nulo");
+        }
+        if (!asistentes.contains(secretario)) {
+            // El secretario debe ser uno de los dos primeros asistentes
+            throw new IllegalArgumentException("El secretario debe ser uno de los asistentes");
+        }
+        this.secretario = secretario;   // Composición débil
     }
 }
