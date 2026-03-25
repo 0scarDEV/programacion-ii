@@ -55,7 +55,7 @@ public class Reunion {
         }
         this.asistentes = asistentes;  // Composición débil
     }
-    private void setSecretario(Empleado secretario) {
+    public void setSecretario(Empleado secretario) {
         if (secretario == null) {
             throw new IllegalArgumentException("El secretario no puede ser nulo");
         }
