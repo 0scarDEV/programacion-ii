@@ -10,8 +10,9 @@ public class Reunion {
     private Fecha fecha;
     private Hora horaCelebracion;
     private ArrayList<Empleado> asistentes;
+    private Empleado secretario;
 
-    public Reunion(String asunto, String lugar, Fecha fecha, Hora horaCelebracion, ArrayList<Empleado> asistentes) {
+    public Reunion(String asunto, String lugar, Fecha fecha, Hora horaCelebracion, ArrayList<Empleado> asistentes, Empleado secretario) {
         setAsunto(asunto);
         setLugar(lugar);
         
@@ -19,6 +20,7 @@ public class Reunion {
         setFecha(fecha);
         setHoraCelebracion(horaCelebracion);
         setAsistentes(asistentes);
+        setSecretario(secretario);
     }
 
     // Getters
@@ -27,6 +29,7 @@ public class Reunion {
     public Fecha getFecha() { return fecha; }       // Composición débil
     public Hora getHoraCelebracion() { return horaCelebracion; }    // Composición débil
     public ArrayList<Empleado> getAsistentes() { return asistentes; }   // Composición débil
+    public Empleado getSecretario() { return secretario; }   // Composición débil
 
     // Setters
     public void setAsunto(String asunto) { this.asunto = asunto; }
@@ -43,7 +46,7 @@ public class Reunion {
         }
         this.horaCelebracion = horaCelebracion;
     }
-    public void setAsistentes(ArrayList<Empleado> asistentes) {
+    private void setAsistentes(ArrayList<Empleado> asistentes) {
         if (asistentes == null) {
             throw new IllegalArgumentException("La lista de asistentes no puede ser nula");
         }
@@ -51,6 +54,16 @@ public class Reunion {
             throw new IllegalArgumentException("Debe haber al menos dos asistentes");
         }
         this.asistentes = asistentes;  // Composición débil
+    }
+    private void setSecretario(Empleado secretario) {
+        if (secretario == null) {
+            throw new IllegalArgumentException("El secretario no puede ser nulo");
+        }
+        if (!asistentes.contains(secretario)) {
+            // El secretario debe ser uno de los dos primeros asistentes
+            throw new IllegalArgumentException("El secretario debe ser uno de los asistentes");
+        }
+        this.secretario = secretario;   // Composición débil
     }
 
     // Asistentes
@@ -67,6 +80,9 @@ public class Reunion {
         if (!asistentes.contains(empleado)) {
             throw new IllegalArgumentException("El empleado no es un asistente");
         }
+        if (empleado.equals(secretario)) {
+            throw new IllegalArgumentException("No se puede eliminar al secretario");
+        }
         asistentes.remove(empleado);
     }
     public int getNumAsistentes() {
@@ -77,5 +93,13 @@ public class Reunion {
             throw new IndexOutOfBoundsException("Índice fuera de rango");
         }
         return asistentes.get(index);
+    }
+
+    // Secretario
+    public void cambiarSecretario(int indexNuevoSecretario) {
+        if (indexNuevoSecretario < 0 || indexNuevoSecretario >= asistentes.size()) {
+            throw new IndexOutOfBoundsException("Índice fuera de rango");
+        }
+        setSecretario(asistentes.get(indexNuevoSecretario));
     }
 }
