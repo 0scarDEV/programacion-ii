@@ -3,6 +3,21 @@ package ejercicio4;
 public class Deportista {
     public enum Categoria {
         BENJAMIN, ALEVIN, INFANTIL, CADETE, JUVENIL, SENIOR;
+
+        public static Categoria fromEdad(int edad) {
+            if (edad <= 8) {
+                return BENJAMIN;
+            } else if (edad <= 10) {
+                return ALEVIN;
+            } else if (edad <= 12) {
+                return INFANTIL;
+            } else if (edad <= 14) {
+                return CADETE;
+            } else if (edad <= 18) {
+                return JUVENIL;
+            }
+            return SENIOR;
+        }
     }
 
     private String dni;
@@ -17,25 +32,15 @@ public class Deportista {
             throw new IllegalArgumentException("La edad no puede ser negativa");
         }
         this.edad = edad;
+        this.categoria = Categoria.fromEdad(edad);
     }
 
     public String getDni() {return dni;}
     public String getNombre() {return nombre;}
     public int getEdad() {return edad;}
     public Categoria getCategoria() {
-        if (edad <= 8) {
-            categoria = Categoria.BENJAMIN;
-        } else if (edad <= 10) {
-            categoria = Categoria.ALEVIN;
-        } else if (edad <= 12) {
-            categoria = Categoria.INFANTIL;
-        } else if (edad <= 14) {
-            categoria = Categoria.CADETE;
-        } else if (edad <= 18) {
-            categoria = Categoria.JUVENIL;
-        } else {
-            categoria = Categoria.SENIOR;
-        }
+        // Como Deportista es inmutable, la categoría se asigna en el constructor y no cambia
+        // categoria = Categoria.fromEdad(edad);
         return categoria;
     }
 }
