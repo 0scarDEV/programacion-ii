@@ -25,5 +25,10 @@ public class Tren {
         this.primerVagon = primerVagon;
     }
 
-    
+    public int getNumVagones() {
+        if (primerVagon == null) {
+            return 0;
+        }
+        return 1 + primerVagon.cuantosMeSiguen();
+    }
 }

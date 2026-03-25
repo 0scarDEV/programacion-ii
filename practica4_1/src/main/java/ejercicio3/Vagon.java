@@ -23,4 +23,14 @@ public class Vagon {
         }
         this.vagonSiguiente = vagonSiguiente;
     }
+
+    public int cuantosMeSiguen() {
+        int count = 0;
+        Vagon current = this.vagonSiguiente;
+        while (current != null) {
+            count++;
+            current = current.vagonSiguiente;
+        }
+        return count;
+    }
 }
