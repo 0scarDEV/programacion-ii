@@ -15,7 +15,16 @@ public class AplicacionPublicaciones {
 
         publicaciones.add(new Libro("El Quijote", 1605, 2, autor1, "Anaya", "Madrid"));
         publicaciones.add(new ComunicacionEnCongreso("Titulo", 2010, 3, autor2, "CongresoX", "CiudadY", "PaisZ"));
-        publicaciones.add(new Articulo("Articulo1", 2020, 10, autor3, "Revista1", 1, 1, 1));
+
+        Publicacion articulo;
+        try {
+            articulo = new Articulo("Articulo1", 2020, 10, autor3, "Revista1", 1, 3, 1);
+        } catch (IncorrectPagesException e) {
+            System.out.println("Error al crear el artículo: " + e.getMessage());
+            articulo = new Articulo("Articulo1", 2020, 10, autor3, "Revista1", 1, 1, 1);
+        }
+
+        publicaciones.add(articulo);
 
         for (Publicacion pub : publicaciones) {
             System.out.print("\n" + pub);

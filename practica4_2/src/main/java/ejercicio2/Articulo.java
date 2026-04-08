@@ -11,6 +11,11 @@ public class Articulo extends Publicacion {
         super(titulo, anho, numCitas, autor);
         this.nombreRevista = nombreRevista;
         this.volumen = volumen;
+
+        if (paginaInicial <= 0 || paginaFinal <= 0 || paginaFinal < paginaInicial) {
+            throw new IncorrectPagesException("Las páginas deben ser números positivos y la página final debe ser mayor o igual a la página inicial.");
+        }
+
         this.paginaInicial = paginaInicial;
         this.paginaFinal = paginaFinal;
     }
