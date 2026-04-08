@@ -6,8 +6,8 @@ public class Articulo extends Publicacion {
     private int paginaInicial;
     private int paginaFinal;
 
-    public Articulo(String titulo, int anho, String nombreRevista, int volumen, int paginaInicial, int paginaFinal) {
-        super(titulo, anho);
+    public Articulo(String titulo, int anho, int numCitas, String nombreRevista, int volumen, int paginaInicial, int paginaFinal) {
+        super(titulo, anho, numCitas);
         this.nombreRevista = nombreRevista;
         this.volumen = volumen;
         this.paginaInicial = paginaInicial;

@@ -4,8 +4,8 @@ public class Libro extends Publicacion {
     private String editorial;
     private String lugar;
 
-    public Libro(String titulo, int anho, String editorial, String lugar) {
-        super(titulo, anho);
+    public Libro(String titulo, int anho, int numCitas, String editorial, String lugar) {
+        super(titulo, anho, numCitas);
         this.editorial = editorial;
         this.lugar = lugar;
     }

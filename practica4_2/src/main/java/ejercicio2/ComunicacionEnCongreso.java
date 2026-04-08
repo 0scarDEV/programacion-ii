@@ -5,8 +5,8 @@ public class ComunicacionEnCongreso extends Publicacion {
     private String ciudad;
     private String pais;
 
-    public ComunicacionEnCongreso(String titulo, int anho, String nombreCongreso, String ciudad, String pais) {
-        super(titulo, anho);
+    public ComunicacionEnCongreso(String titulo, int anho, int numCitas, String nombreCongreso, String ciudad, String pais) {
+        super(titulo, anho, numCitas);
         this.nombreCongreso = nombreCongreso;
         this.ciudad = ciudad;
         this.pais = pais;
