@@ -1,4 +1,5 @@
 package ejercicio2;
+import ejercicio1.Autor;
 
 public class Articulo extends Publicacion {
     private String nombreRevista;
@@ -6,8 +7,8 @@ public class Articulo extends Publicacion {
     private int paginaInicial;
     private int paginaFinal;
 
-    public Articulo(String titulo, int anho, int numCitas, String nombreRevista, int volumen, int paginaInicial, int paginaFinal) {
-        super(titulo, anho, numCitas);
+    public Articulo(String titulo, int anho, int numCitas, Autor autor, String nombreRevista, int volumen, int paginaInicial, int paginaFinal) {
+        super(titulo, anho, numCitas, autor);
         this.nombreRevista = nombreRevista;
         this.volumen = volumen;
         this.paginaInicial = paginaInicial;

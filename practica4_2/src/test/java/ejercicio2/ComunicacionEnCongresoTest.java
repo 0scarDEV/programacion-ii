@@ -2,10 +2,13 @@ package ejercicio2;
 
 import org.junit.jupiter.api.Test;
 
+import ejercicio1.Autor;
+
 public class ComunicacionEnCongresoTest {
     @Test
     void testComunicacionEnCongreso() {
-        ComunicacionEnCongreso com = new ComunicacionEnCongreso("Titulo", 2010, "CongresoX", "CiudadY", "PaisZ");
+        Autor autor = new Autor("1", "de Cervantes", "Miguel", "InstitutoX");
+        ComunicacionEnCongreso com = new ComunicacionEnCongreso("Titulo", 2010, 0, autor, "CongresoX", "CiudadY", "PaisZ");
         assert com.getTitulo().equals("Titulo");
         assert com.getAnho() == 2010;
         assert com.getNombreCongreso().equals("CongresoX");
