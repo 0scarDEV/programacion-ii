@@ -19,6 +19,6 @@ public class Publicacion {
 
     @Override
     public String toString() {
-        return "titulo=" + titulo + ", anho=" + anho;
+        return "Titulo: " + titulo + ", año: " + anho;
     }
 }

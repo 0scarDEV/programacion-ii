@@ -20,6 +20,6 @@ public class Libro extends Publicacion {
 
     @Override
     public String toString() {
-        return "Libro [titulo=" + getTitulo() + ", anho=" + getAnho() + ", editorial=" + editorial + ", lugar=" + lugar + "]";
+        return "Titulo: " + getTitulo() + ", año " + getAnho() + ", editorial: " + editorial + ", lugar: " + lugar;
     }
 }
