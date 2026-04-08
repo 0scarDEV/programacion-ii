@@ -32,7 +32,7 @@ public class Articulo extends Publicacion {
 
     @Override
     public String toString() {
-        return super.toString() + ", nombreRevista=" + nombreRevista + ", volumen=" + volumen
-                + ", paginaInicial=" + paginaInicial + ", paginaFinal=" + paginaFinal;
+        return "Articulo [" + super.toString() + ", nombreRevista=" + nombreRevista + ", volumen=" + volumen
+                + ", paginaInicial=" + paginaInicial + ", paginaFinal=" + paginaFinal + "]";
     }
 }

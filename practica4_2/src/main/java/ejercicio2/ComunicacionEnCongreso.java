@@ -26,6 +26,6 @@ public class ComunicacionEnCongreso extends Publicacion {
 
     @Override
     public String toString() {
-        return super.toString() + ", nombreCongreso=" + nombreCongreso + ", ciudad=" + ciudad + ", pais=" + pais;
+        return "ComunicacionEnCongreso [" + super.toString() + ", nombreCongreso=" + nombreCongreso + ", ciudad=" + ciudad + ", pais=" + pais + "]";
     }
 }
