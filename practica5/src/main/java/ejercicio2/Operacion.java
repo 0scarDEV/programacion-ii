@@ -22,6 +22,6 @@ class OperacionFecha implements Operacion {
 class OperacionChiste implements Operacion {
     public String visualizarMenu() { return "Decir chiste"; }
     public void ejecutar() {
-        System.out.println("¿Qué le dice un GIF a un JPG? ¡Anímate, hombre!");
+        System.out.println("Chiste");
     }
 }
