@@ -1,9 +1,15 @@
 package ejercicio1;
 
-class Mensaje {
-
-    private TipoNotificacion tipo;
+abstract class Mensaje {
     private String texto;
+
+    public String getTexto() {
+        return texto;
+    }
+
+    /* Tarea 1 */
+    /*
+    private TipoNotificacion tipo;
 
     public Mensaje(TipoNotificacion tipo, String texto) {
         this.tipo = tipo;
@@ -13,9 +19,12 @@ class Mensaje {
     public TipoNotificacion getTipo() {
         return tipo;
     }
+    */
 
-    public String getTexto() {
-        return texto;
+    /* Tarea 2 */
+    public Mensaje(String texto) {
+        this.texto = texto;
     }
 
+    public abstract void enviar();    
 }

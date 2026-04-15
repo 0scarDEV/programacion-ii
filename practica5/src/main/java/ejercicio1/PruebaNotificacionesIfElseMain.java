@@ -3,16 +3,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PruebaNotificacionesIfElseMain {
+    /* Tarea 1 */
+    /*
     public static void main(String[] args) {
-
         List<Mensaje> mensajes = new ArrayList<>();
 
         mensajes.add(new Mensaje(TipoNotificacion.EMAIL,
                 "Este es el contenido del email."));
-
         mensajes.add(new Mensaje(TipoNotificacion.SMS,
                 "Este es el contenido del SMS."));
-
         mensajes.add(new Mensaje(TipoNotificacion.APP,
                 "Este es el contenido de la notificación de la app."));
 
@@ -25,6 +24,19 @@ public class PruebaNotificacionesIfElseMain {
             } else if (mensaje.getTipo() == TipoNotificacion.APP) {
                 System.out.println("[App] " + mensaje.getTexto());
             }
+        }
+    }
+    */
+
+    // Tarea 2
+    public static void main(String[] args) {
+        List<Mensaje> mensajes = new ArrayList<>();
+        mensajes.add(new MensajeEmail("Este es el contenido del email."));
+        mensajes.add(new MensajeSMS("Este es el contenido del SMS."));
+        mensajes.add(new MensajeApp("Este es el contenido de la notificación de la app."));
+
+        for (Mensaje mensaje : mensajes) {
+            mensaje.enviar();
         }
     }
 }
