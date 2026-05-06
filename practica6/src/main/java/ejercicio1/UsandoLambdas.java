@@ -29,5 +29,5 @@ public class UsandoLambdas {
 
         // AtomicInteger funciona por ser un Objeto mutable.
         // El array funciona porque el array es un objeto mutable, aunque el array en sí no se modifique, su contenido sí puede ser modificado.    }
-        
+    }
 }
