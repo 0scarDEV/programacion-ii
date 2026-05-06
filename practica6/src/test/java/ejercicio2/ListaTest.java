@@ -29,4 +29,18 @@ public class ListaTest {
         assertTrue(lista.existe(i -> i > 100));
         assertFalse(lista.existe(i -> i > 10000));
     }
+
+    @Test
+    void testTransformar() {
+        Lista<String> lista = new Lista<>(10);
+        lista.añadir("uno");
+        lista.añadir("dos");
+        lista.añadir("tres");
+
+        Lista<Integer> longitudes = lista.transformar(s -> s.length());
+
+        assertEquals(3, longitudes.obtener(0));
+        assertEquals(3, longitudes.obtener(1));
+        assertEquals(4, longitudes.obtener(2));
+    }
 }

@@ -70,4 +70,15 @@ class Lista<T> {
         }
         return false;
     }
+
+    /* Tarea 4 */
+    public <R> Lista<R> transformar(Function<T, R> transformacion) {
+        Lista<R> resultLista = new Lista<>(numElementos); 
+        for (T e : elementos) {
+            if (e != null) {
+                resultLista.añadir(transformacion.apply(e));
+            }
+        }
+        return resultLista;
+    }
 }
