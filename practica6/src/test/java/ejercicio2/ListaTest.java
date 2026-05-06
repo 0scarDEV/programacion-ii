@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class ListaTest {
+    /* Tarea 1 */
     @Test
     void testParaCada() {
         Lista<String> lista = new Lista<>(10);
@@ -18,6 +19,7 @@ public class ListaTest {
         assert resultado.toString().equals("uno dos tres ");
     }
 
+    /* Tarea 2 */
     @Test
     void testExiste() {
         Lista<Integer> lista = new Lista<>(10);
@@ -30,6 +32,21 @@ public class ListaTest {
         assertFalse(lista.existe(i -> i > 10000));
     }
 
+    /* Tarea 3 */
+    @Test
+    void testSoloLosQue() {
+        Lista<Integer> lista = new Lista<>(10);
+        lista.añadir(1);
+        lista.añadir(2);
+        lista.añadir(300);
+        lista.añadir(9999);
+
+        Lista<Integer> filtrada = lista.soloLosQue(i -> i > 100);
+        assertEquals(300, filtrada.obtener(0));
+        assertEquals(9999, filtrada.obtener(1));
+    }
+
+    /* Tarea 4 */
     @Test
     void testTransformar() {
         Lista<String> lista = new Lista<>(10);

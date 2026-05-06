@@ -71,6 +71,17 @@ class Lista<T> {
         return false;
     }
 
+    /* Tarea 3 */
+    public Lista<T> soloLosQue(Predicate<T> condicion) {
+        Lista<T> resultLista = new Lista<>(numElementos);
+        for (T elemento : elementos) {
+            if (elemento != null && condicion.test(elemento)) {
+                resultLista.añadir(elemento);
+            }
+        }
+        return resultLista;
+    }
+
     /* Tarea 4 */
     public <R> Lista<R> transformar(Function<T, R> transformacion) {
         Lista<R> resultLista = new Lista<>(numElementos); 
