@@ -40,13 +40,6 @@ class Lista<T> {
         }
     }
 
-    /* Tarea 1 */
-    public void paraCada(Consumer<T> accion) {
-        for (int i = 0; i < this.numElementos; i++) {
-            accion.accept(this.elementos[i]);
-        }
-    }
-
     @Override
     public String toString() {
         StringBuilder toString = new StringBuilder();
@@ -59,5 +52,22 @@ class Lista<T> {
         }
         toString.append("]");
         return toString.toString();
+    }
+
+    /* Tarea 1 */
+    public void paraCada(Consumer<T> accion) {
+        for (int i = 0; i < this.numElementos; i++) {
+            accion.accept(this.elementos[i]);
+        }
+    }
+
+    /* Tarea 2 */
+    public boolean existe(Predicate<T> condicion) {
+        for (T elemento : elementos) {
+            if (elemento != null && condicion.test(elemento)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
