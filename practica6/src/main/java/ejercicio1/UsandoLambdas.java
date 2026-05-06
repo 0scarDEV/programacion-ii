@@ -11,5 +11,6 @@ public class UsandoLambdas {
         lista.add("dos");
         lista.add("tres");
 
+        lista.forEach(s -> System.out.println(s));
     }
 }
