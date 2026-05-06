@@ -37,7 +37,7 @@ public class UsandoLambdas {
 
 
         /* Tarea 3 */
-        Consumer<String> imprimir = s -> System.out.println(s.length());
+        Consumer<String> imprimir = s -> System.out.println(s);
         lista.forEach(imprimir);
 
         /* Tarea 4 */
@@ -45,6 +45,6 @@ public class UsandoLambdas {
     }
 
     static void imprimir(String s) {
-        System.out.println(s.length());
+        System.out.println(s);
     }
 }
