@@ -35,15 +35,15 @@ public class ListaTest {
     /* Tarea 3 */
     @Test
     void testSoloLosQue() {
-        Lista<Integer> lista = new Lista<>(10);
-        lista.añadir(1);
-        lista.añadir(2);
-        lista.añadir(300);
-        lista.añadir(9999);
+        Lista<String> lista = new Lista<>(10);
+        lista.añadir("Oscar");
+        lista.añadir("Paco");
+        lista.añadir("Pepe");
+        lista.añadir("Adriel");
 
-        Lista<Integer> filtrada = lista.soloLosQue(i -> i > 100);
-        assertEquals(300, filtrada.obtener(0));
-        assertEquals(9999, filtrada.obtener(1));
+        Lista<String> filtrada = lista.soloLosQue(s -> s.startsWith("P"));
+        assertEquals("Paco", filtrada.obtener(0));
+        assertEquals("Pepe", filtrada.obtener(1));
     }
 
     /* Tarea 4 */
@@ -55,7 +55,6 @@ public class ListaTest {
         lista.añadir("tres");
 
         Lista<Integer> longitudes = lista.transformar(s -> s.length());
-
         assertEquals(3, longitudes.obtener(0));
         assertEquals(3, longitudes.obtener(1));
         assertEquals(4, longitudes.obtener(2));
