@@ -3,6 +3,7 @@ package ejercicio1;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
 
 public class UsandoLambdas {
     public static void main(String[] args) {
@@ -12,8 +13,11 @@ public class UsandoLambdas {
         lista.add("dos");
         lista.add("tres");
 
+        /* Tarea 1 */
         lista.forEach(s -> System.out.println(s));
 
+
+        /* Tarea 2 */
         AtomicInteger longitudTotal = new AtomicInteger(0);
         int[] longitudTotalArray = {0};
         List<String> losDeTamañoMayorA3 = new ArrayList<>();
@@ -24,10 +28,16 @@ public class UsandoLambdas {
             longitudTotal.set(longitudTotal.get() + s.length());
             longitudTotalArray[0] += s.length();
         });
-        System.out.println("Longitud total: " + longitudTotal.get());
-        System.out.println("Longitud total (array): " + longitudTotalArray[0]);
 
         // AtomicInteger funciona por ser un Objeto mutable.
-        // El array funciona porque el array es un objeto mutable, aunque el array en sí no se modifique, su contenido sí puede ser modificado.    }
+        System.out.println("Longitud total: " + longitudTotal.get());
+        
+        // El array funciona porque el array es un objeto mutable, aunque el array en sí no se modifique, su contenido sí puede ser modificado.
+        System.out.println("Longitud total (array): " + longitudTotalArray[0]);
+
+
+        /* Tarea 3 */
+        Consumer<String> imprimir = s -> System.out.println(s.length());
+        lista.forEach(imprimir);
     }
 }
