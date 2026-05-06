@@ -17,19 +17,28 @@ public class Vagon {
         return vagonSiguiente;
     }
 
-    public void setVagonSiguiente(Vagon vagonSiguiente) {
+    public void setVagonSiguiente(Vagon v) {
         if (this.vagonSiguiente != null) {
             this.vagonSiguiente.vagonAnterior = null; // Desconectar el vagon siguiente actual
         }
-        this.vagonSiguiente = vagonSiguiente;
+
+        this.vagonSiguiente = v;
+    
+        if (v != null) {
+            if (v.vagonAnterior != null) {
+                v.vagonAnterior.vagonSiguiente = null; // Desconectar el vagon anterior del nuevo vagon
+            } else {
+                v.vagonAnterior = this; // Conectar el nuevo vagon siguiente
+            }
+        }
     }
 
     public int cuantosMeSiguen() {
         int count = 0;
-        Vagon current = this.vagonSiguiente;
-        while (current != null) {
+        Vagon v = this.vagonSiguiente;
+        while (v != null) {
             count++;
-            current = current.vagonSiguiente;
+            v = v.vagonSiguiente;
         }
         return count;
     }
