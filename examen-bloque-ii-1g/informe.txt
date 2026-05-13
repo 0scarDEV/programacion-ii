@@ -1,0 +1,8 @@
+Biblioteca: Biblioteca Central
+  Bibliotecario[Maria, maria@gmail.com][Jefe]
+  Bibliotecario[Pepe, pepe@gmail.com][Auxiliar]
+  Total horas: 3300
+Biblioteca: Biblioteca Sucursal Norte
+  Bibliotecario[Josefa, josef@gmail.com][Auxiliar]
+  Total horas: 1500
+
